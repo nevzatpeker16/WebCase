@@ -1,8 +1,33 @@
-﻿@{
+﻿@model List<Currency>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table">
+        <thead>
+        <th>Döviz</th>
+        <th>Kodu</th>
+        <th>Birim</th>
+        <th>Alış</th>
+        <th>Satış</th>
+        </thead>
+        <tbody>
+        @foreach (var curr in Model)
+        {
+            <tr>
+                <td>@curr.CurrencyName</td>
+                <td>@curr.Kod</td>
+                <td>@curr.Unit</td>
+                <td>@(string.IsNullOrEmpty(curr.BanknoteBuying) ? "Fiyat Bilgisi Yok" : curr.BanknoteBuying + " TL")</td>
+                <td>@(string.IsNullOrEmpty(curr.BanknoteSelling) ? "Fiyat Bilgisi Yok" : curr.BanknoteSelling + " TL")</td>
+            </tr>
+        }
+
+
+        </tbody>
+
+
+    </table>
+
 </div>

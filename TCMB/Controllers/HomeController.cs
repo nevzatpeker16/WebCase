@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TCMB.Models;
+using TCMB.Services;
 
 namespace TCMB.Controllers
 {
@@ -20,7 +21,9 @@ namespace TCMB.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var DataService = new DataService();
+            var currencies = DataService.GetData();
+            return View(currencies);
         }
 
         public IActionResult Privacy()
@@ -33,5 +36,6 @@ namespace TCMB.Controllers
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
+        
     }
 }
