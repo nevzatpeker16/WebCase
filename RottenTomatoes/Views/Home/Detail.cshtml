@@ -1,0 +1,17 @@
+﻿@model Movie
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<table class ="table">
+    <thead><th>ID</th>
+    <th>Movie Name</th>
+    <th>Movie Year </th>
+    </thead>
+    <tbody>
+    <td> @Model.Id </td>
+    <th>@Model.Title</th>
+    <th>@Model.Year</th>
+    </tbody>
+</table>
+
