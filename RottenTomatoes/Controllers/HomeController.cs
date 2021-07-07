@@ -29,21 +29,26 @@ namespace RottenTomatoes.Controllers
         {
             return View();
         }
-
-        [Route("[controller]/Detail/{id}")]
-        public void getDetail([FromForm] int id)
+        
+        public IActionResult getDetail(int idMovie)
         {
-            Detail(id);
+            if (idMovie == 0)
+            {
+                TempData["IdValue"] = string.Format("{0}", idMovie);
+            }
+
+            Console.WriteLine("deneme deneme");
+            return RedirectToAction("Detail", new {idMovie});
         }
+        
 
 
-
-        [Route("[controller]/Detail/{id}")]
-        public IActionResult Detail([FromRoute] int id)
+        [Route("[controller]/Detail/{idMovie}")]
+        public IActionResult Detail([FromRoute] int idMovie)
         {
             
             var service = new DataService();
-            var a = service.GetMovie(id);
+            var a = service.GetMovie(idMovie);
             return View(a);
         }
 
