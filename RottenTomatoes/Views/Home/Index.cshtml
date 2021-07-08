@@ -12,6 +12,38 @@
             Search Movie
         </button>
     </form>
+        <form asp-action="getDetailByName">
+            <span class="border border-light">   
+                <label for="movieName">İnput a Movie Name</label>
+                <input type="text" class = "form-control" id="movieName" name ="movieName" cols="30" rows="10">
+            </span>
+            <button id="btnId2" type="submit">
+                Search Movie
+            </button>
+        </form>
+    
 
 
 </span>
+
+
+
+
+<script type="text/javascript">
+window.onload = function (){
+    let form = document.getElementById("getDetail")
+    let inputs = form.children;
+    for(let i = 0; i<inputs.length; i++){
+    let el = inputs[i];
+    }
+    
+    
+    
+}
+function cacheInput(e){
+localStorage.setItem(e.attributes["name"].value,e.value)    
+}
+
+
+
+</script>

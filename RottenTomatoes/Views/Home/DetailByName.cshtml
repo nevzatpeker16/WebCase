@@ -1,0 +1,21 @@
+﻿@model List<Movie>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<table class="table">
+    @foreach (var a in Model)
+    {
+        <thead><th>ID</th>
+        <th>Movie Name</th>
+        <th>Movie Year </th>
+        </thead>
+        <tbody>
+        <td> @a.Id </td>
+        <th>@a.Title</th>
+        <th>@a.Year</th>
+        </tbody>
+    }
+
+</table>

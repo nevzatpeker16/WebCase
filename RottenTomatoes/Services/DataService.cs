@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 using RottenTomatoes.Models;
@@ -23,5 +24,14 @@ namespace RottenTomatoes.Services
             var reader = new StreamReader(response.GetResponseStream());
             return reader.ReadToEnd();
         }
+
+        public List<Movie> GetMoviebyName(string nameMovie)
+        {
+            var detail = Request("movies?q=" + nameMovie);
+            var movie = JsonConvert.DeserializeObject<List<Movie>>();
+            return movie;
+        }
+
+
     }
 }
