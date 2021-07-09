@@ -10,10 +10,11 @@
     <th>Movie Name</th>
     <th>Movie Year </th>
     </thead>
-    <tbody>
-    <td> </td>
-    <th></th>
-    <th></th>
-    </tbody>
-
+    @foreach(var a in Model.Movies){   
+        <tbody>
+        <th>@a.Id</th>
+        <td>@a.Title</td>
+        <th>@a.Year</th>
+        </tbody>}
 </table>
+
